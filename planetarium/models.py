@@ -6,6 +6,9 @@ from django.conf import settings
 class ShowTheme(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
+    class Meta:
+        ordering = ["name"]
+
     def __str__(self) -> str:
         return self.name
 
@@ -13,7 +16,7 @@ class ShowTheme(models.Model):
 class AstronomyShow(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
-    show_theme = models.ManyToManyField(
+    show_themes = models.ManyToManyField(
         to="ShowTheme",
         related_name="astronomy_shows"
     )
@@ -50,6 +53,9 @@ class PlanetariumDome(models.Model):
     rows = models.IntegerField()
     seats_in_row = models.IntegerField()
 
+    class Meta:
+        ordering = ["name"]
+
     @property
     def capacity(self) -> int:
         return self.rows * self.seats_in_row
@@ -71,6 +77,10 @@ class Ticket(models.Model):
     )
     row = models.IntegerField()
     seat = models.IntegerField()
+
+    class Meta:
+        unique_together = ("show_session", "row", "seat")
+        ordering = ["row", "seat"]
 
     @staticmethod
     def validate_ticket(row, seat, planetarium_dome, error_to_raise):
@@ -118,10 +128,6 @@ class Ticket(models.Model):
             f"{str(self.show_session)} (row: {self.row}, seat: {self.seat})"
         )
 
-    class Meta:
-        unique_together = ("show_session", "row", "seat")
-        ordering = ["row", "seat"]
-
 
 class Reservation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
@@ -131,8 +137,8 @@ class Reservation(models.Model):
         related_name="reservations"
     )
 
-    def __str__(self) -> str:
-        return str(self.created_at)
-
     class Meta:
         ordering = ["-created_at"]
+
+    def __str__(self) -> str:
+        return self.user.email + " " + str(self.created_at)
