@@ -45,7 +45,7 @@ class ShowSession(models.Model):
         ordering = ["-show_time"]
 
     def __str__(self) -> str:
-        return self.astronomy_show.title + " " + str(self.show_time)
+        return self.astronomy_show.title + " " + self.show_time
 
 
 class PlanetariumDome(models.Model):
@@ -96,10 +96,11 @@ class Ticket(models.Model):
             if not (1 <= ticket_attr_value <= count_attrs):
                 raise error_to_raise(
                     {
-                        ticket_attr_name: f"{ticket_attr_name} "
-                        f"number must be in available range: "
-                        f"(1, {planetarium_dome_attr_name}): "
-                        f"(1, {count_attrs})"
+                        ticket_attr_name:
+                            f"{ticket_attr_name} "
+                            f"number must be in available range: "
+                            f"(1, {planetarium_dome_attr_name}): "
+                            f"(1, {count_attrs})"
                     }
                 )
 
@@ -112,11 +113,11 @@ class Ticket(models.Model):
         )
 
     def save(
-        self,
-        force_insert=False,
-        force_update=False,
-        using=None,
-        update_fields=None,
+            self,
+            force_insert=False,
+            force_update=False,
+            using=None,
+            update_fields=None,
     ):
         self.full_clean()
         return super(Ticket, self).save(
@@ -141,4 +142,7 @@ class Reservation(models.Model):
         ordering = ["-created_at"]
 
     def __str__(self) -> str:
-        return self.user.email + " " + str(self.created_at)
+        return (
+            f"{self.user.email} "
+            f"{str(self.created_at.strftime('%Y-%m-%d %H:%M'))}"
+        )
