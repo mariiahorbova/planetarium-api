@@ -1,6 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.conf import settings
+from django.utils import timezone
 
 
 class ShowTheme(models.Model):
@@ -43,6 +44,35 @@ class ShowSession(models.Model):
 
     class Meta:
         ordering = ["-show_time"]
+
+    @staticmethod
+    def validate_show_time(show_time, error_to_raise):
+        now = timezone.now().astimezone(timezone.get_current_timezone())
+        if not (now < show_time):
+            now = now.strftime("%Y-%m-%d %H:%M")
+            raise error_to_raise(
+                {
+                    "show_time": f"Show time should be later than {now}!"
+                }
+            )
+
+    def clean(self):
+        ShowSession.validate_show_time(
+            self.show_time,
+            ValidationError
+        )
+
+    def save(
+            self,
+            force_insert=False,
+            force_update=False,
+            using=None,
+            update_fields=None,
+    ):
+        self.full_clean()
+        return super(ShowSession, self).save(
+            force_insert, force_update, using, update_fields
+        )
 
     def __str__(self) -> str:
         return self.astronomy_show.title + " " + self.show_time
