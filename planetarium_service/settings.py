@@ -20,6 +20,7 @@ INSTALLED_APPS = [
 
     "debug_toolbar",
     "drf_spectacular",
+    "rest_framework",
     "rest_framework_simplejwt",
 
     "planetarium",

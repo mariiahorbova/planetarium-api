@@ -123,7 +123,7 @@ class TicketSeatsSerializer(TicketSerializer):
         fields = ("row", "seat")
 
 
-class MovieSessionDetailSerializer(ShowSessionSerializer):
+class ShowSessionDetailSerializer(ShowSessionSerializer):
     astronomy_show = AstronomyShowListSerializer(many=False, read_only=True)
     planetarium_dome = PlanetariumDomeSerializer(many=False, read_only=True)
     taken_places = TicketSeatsSerializer(
