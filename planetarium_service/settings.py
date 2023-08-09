@@ -10,6 +10,8 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
+INTERNAL_IPS = ["127.0.0.1", "localhost"]
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
