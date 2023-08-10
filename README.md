@@ -80,9 +80,9 @@ If you would like to test API right away, these are the steps:
 
 ## Endpoints  
 ```
-	"themes":		 "http://127.0.0.1:8000/api/planetarium/themes/"
+	"themes":	 "http://127.0.0.1:8000/api/planetarium/themes/"
 	"planetariums":  "http://127.0.0.1:8000/api/planetarium/planetariums/"
-	"shows":		 "http://127.0.0.1:8000/api/planetarium/shows/"
+	"shows":	 "http://127.0.0.1:8000/api/planetarium/shows/"
 	"show_sessions": "http://127.0.0.1:8000/api/planetarium/show_sessions/",  
 	"reservations":  "http://127.0.0.1:8000/api/planetarium/reservations/" 
 
@@ -92,8 +92,8 @@ If you would like to test API right away, these are the steps:
 	"verify token"	 "http://127.0.0.1:8000/api/user/token/verify/"
 
 	"documentatoin": "http://127.0.0.1:8000/api/schema/" 
-					 "http://127.0.0.1:8000/api/schema/swagger-ui/" 
-					 "http://127.0.0.1:8000/api/schema/redoc/ "
+			 "http://127.0.0.1:8000/api/schema/swagger-ui/" 
+			 "http://127.0.0.1:8000/api/schema/redoc/ "
 ```
 
 ## Customization
