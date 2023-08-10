@@ -1,3 +1,6 @@
+![image_2023-08-10_21-31-47](https://github.com/mariiahorbova/planetarium-api-mate/assets/44654425/9fccd77f-94f8-4c1a-9e74-e5f5bc54b839)
+![image_2023-08-10_21-30-54](https://github.com/mariiahorbova/planetarium-api-mate/assets/44654425/96755fda-1a87-4d80-9300-f0dea8c755da)
+![image_2023-08-10_21-28-55](https://github.com/mariiahorbova/planetarium-api-mate/assets/44654425/a5f65840-75ad-45d6-9f08-3de1598028ac)
 # Planetarium API Service 
 Planetarium  API Service is a Django-based RESTful API for managing planetarium shows, themes, reservations and more. It provides endpoints for creating, updating, and retrieving show-related data, as well as user registration and order useful things. 
 ## Table of Contents  
@@ -114,11 +117,13 @@ Contributions are welcome! If you find any issues or want to add enhancements, f
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/mariiahorbova/planetarium-api-mate/blob/main/LICENSE) file for details.
 
 ## Schema
-![schema.png](..%2F..%2FDownloads%2Fschema.png)
+![schema](https://github.com/mariiahorbova/planetarium-api-mate/assets/44654425/040eade1-05fa-42f7-92ea-a342ad68e46a)
+
 
 ## Screenshots
-![image_2023-08-10_21-28-04.png](..%2F..%2FDownloads%2FTelegram%20Desktop%2Fimage_2023-08-10_21-28-04.png)
-![image_2023-08-10_21-28-18.png](..%2F..%2FDownloads%2FTelegram%20Desktop%2Fimage_2023-08-10_21-28-18.png)
-![image_2023-08-10_21-28-55.png](..%2F..%2FDownloads%2FTelegram%20Desktop%2Fimage_2023-08-10_21-28-55.png)
-![image_2023-08-10_21-30-54.png](..%2F..%2FDownloads%2FTelegram%20Desktop%2Fimage_2023-08-10_21-30-54.png)
-![image_2023-08-10_21-31-47.png](..%2F..%2FDownloads%2FTelegram%20Desktop%2Fimage_2023-08-10_21-31-47.png)
+![image_2023-08-10_21-28-04](https://github.com/mariiahorbova/planetarium-api-mate/assets/44654425/89dc935c-6b68-4b18-815e-876edb78da64)
+![image_2023-08-10_21-28-18](https://github.com/mariiahorbova/planetarium-api-mate/assets/44654425/bcc664a8-9285-4083-bee3-58142730f410)
+![image_2023-08-10_21-28-55](https://github.com/mariiahorbova/planetarium-api-mate/assets/44654425/fb4de9a7-f882-439b-b39a-108d45b3d288)
+![image_2023-08-10_21-30-54](https://github.com/mariiahorbova/planetarium-api-mate/assets/44654425/95a11424-fe87-49a5-be35-d6e3093a3474)
+![image_2023-08-10_21-31-47](https://github.com/mariiahorbova/planetarium-api-mate/assets/44654425/d9a3b1e0-056a-445e-a1d8-65cbc7d96f84)
+![image_2023-08-10_21-32-47](https://github.com/mariiahorbova/planetarium-api-mate/assets/44654425/417747b7-63cc-4f17-ba81-aa4f85e337ed)
