@@ -1,6 +1,3 @@
-![image_2023-08-10_21-31-47](https://github.com/mariiahorbova/planetarium-api-mate/assets/44654425/9fccd77f-94f8-4c1a-9e74-e5f5bc54b839)
-![image_2023-08-10_21-30-54](https://github.com/mariiahorbova/planetarium-api-mate/assets/44654425/96755fda-1a87-4d80-9300-f0dea8c755da)
-![image_2023-08-10_21-28-55](https://github.com/mariiahorbova/planetarium-api-mate/assets/44654425/a5f65840-75ad-45d6-9f08-3de1598028ac)
 # Planetarium API Service 
 Planetarium  API Service is a Django-based RESTful API for managing planetarium shows, themes, reservations and more. It provides endpoints for creating, updating, and retrieving show-related data, as well as user registration and order useful things. 
 ## Table of Contents  
