@@ -6,6 +6,7 @@ from django.db import models
 from django.conf import settings
 from django.utils import timezone
 from django.utils.text import slugify
+from pytz import utc
 
 
 class ShowTheme(models.Model):
@@ -59,7 +60,7 @@ class ShowSession(models.Model):
     @staticmethod
     def validate_show_time(show_time, error_to_raise):
         now = timezone.now().astimezone(timezone.get_current_timezone())
-        if not (now < show_time):
+        if not (now < utc.localize(show_time)):
             now = now.strftime("%Y-%m-%d %H:%M")
             raise error_to_raise(
                 {
@@ -86,7 +87,11 @@ class ShowSession(models.Model):
         )
 
     def __str__(self) -> str:
-        return self.astronomy_show.title + " " + self.show_time
+        return (
+                self.astronomy_show.title
+                + " "
+                + self.show_time.strftime("%Y-%m-%d %H:%M")
+        )
 
 
 class PlanetariumDome(models.Model):

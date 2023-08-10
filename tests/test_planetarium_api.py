@@ -1,3 +1,5 @@
+import datetime
+
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
@@ -48,7 +50,7 @@ def sample_show_session(**params):
     astronomy_show = sample_astronomy_show()
 
     defaults = {
-        "show_time": "2022-06-02 14:00:00",
+        "show_time": datetime.datetime.now() + datetime.timedelta(days=10),
         "astronomy_show": astronomy_show,
         "planetarium_dome": planetarium_dome,
     }
