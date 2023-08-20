@@ -38,7 +38,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-    """User model."""
+    """User model with email required instead of username."""
 
     username = None
     email = models.EmailField(_("email address"), unique=True)

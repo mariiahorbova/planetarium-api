@@ -70,7 +70,7 @@ class AstronomyShowViewSet(
         return [int(str_id) for str_id in qs.split(",")]
 
     def get_queryset(self):
-        """Retrieve the movies with filters"""
+        """Retrieve the astronomy shows with filters"""
         title = self.request.query_params.get("title")
         show_themes = self.request.query_params.get("show_themes")
 
@@ -86,6 +86,7 @@ class AstronomyShowViewSet(
         return queryset.distinct()
 
     def get_serializer_class(self):
+        """Retrieve serializers based on user's action"""
         if self.action == "list":
             return AstronomyShowListSerializer
 
@@ -104,6 +105,7 @@ class AstronomyShowViewSet(
         permission_classes=[IsAdminUser]
     )
     def upload_image(self, request, pk=None):
+        """Uploads image to local storage"""
         movie = self.get_object()
         serializer = self.get_serializer(movie, data=request.data)
 
@@ -147,6 +149,7 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
 
     def get_queryset(self):
+        """Retrieve show sessions with filters"""
         date = self.request.query_params.get("date")
         astronomy_show_id_str = self.request.query_params.get("astronomy_show")
 
@@ -162,6 +165,7 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
         return queryset
 
     def get_serializer_class(self):
+        """Retrieve serializers based on user's action"""
         if self.action == "list":
             return ShowSessionListSerializer
 
@@ -186,6 +190,7 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
         ]
     )
     def list(self, request, *args, **kwargs):
+        """Retrives list of show sessions"""
         return super().list(request, *args, **kwargs)
 
 
@@ -208,13 +213,16 @@ class ReservationViewSet(
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
+        """Retrieve user's reservations only"""
         return Reservation.objects.filter(user=self.request.user)
 
     def get_serializer_class(self):
+        """Retrieve serializers based on user's action"""
         if self.action == "list":
             return ReservationListSerializer
 
         return ReservationSerializer
 
     def perform_create(self, serializer):
+        """Binds reservation to the user that created it"""
         serializer.save(user=self.request.user)
