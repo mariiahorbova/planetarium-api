@@ -13,7 +13,7 @@ Planetarium  API Service is a Django-based RESTful API for managing planetarium 
 - [Screenshots](#screenshots)
 
 ## Features:  
-- CRUD operations for planetarium shows, themes, reservations and orders. 
+- CRUD operations for planetarium shows, domes, themes and reservations. 
 - Add images for shows
 - Ticket validation based on seat availability.
 
@@ -22,8 +22,7 @@ Planetarium  API Service is a Django-based RESTful API for managing planetarium 
 Before you begin, ensure you have the following installed:
 
 -   Docker: [Install Docker](https://docs.docker.com/get-docker/)
--   PostgreSQL: [Install PostgreSQL](https://www.postgresql.org/download/)
-
+-   PostgreSQL: [Install PostgreSQL](https://www.postgresql.org/download/) (Optional - if you want to make changes in db before accessing API)
 ## Getting Started
 
 Follow these steps to set up and run the Planetarium API project using 
@@ -32,10 +31,8 @@ local project and Docker:
 1.  Clone this repository to your local machine:
     
     `https://github.com/mariiahorbova/planetarium-api-mate.git`
-2. Navigate to the project directory:
-    `cd planetarium-api-mate` 
-3. Create `.env` file and define environmental variables by following `.
-   env_example`: 
+2. Navigate to the project directory: `cd planetarium-api-mate` 
+3. Create `.env` file and define environmental variables by following `.env_example`: 
 ```
 SECRET_KEY = your_secret_key  
 DEBUG = your_debug_value  
@@ -44,7 +41,7 @@ POSTGRES_USER=your_db_user
 POSTGRES_PASSWORD=your_db_password  
 POSTGRES_HOST=your_db_host
 ```
-4.  Build the Docker containers using Docker Compose:
+4.  Build the Docker container using Docker Compose:
 
     `docker-compose build`
 5. Access list of containers:
@@ -53,10 +50,10 @@ POSTGRES_HOST=your_db_host
 6.  Create a superuser for accessing the Django admin panel and API:
 
     `docker exec -it <container_id here> python manage.py createsuperuser`
-7.  Start the Docker containers:
+7.  Start the Docker container:
 
-    `docker-compose up -d` 
-8.  To stop and remove the containers, use:
+    `docker-compose up` 
+8.  To stop the container, use:
 
     `docker-compose down` 
 
@@ -71,10 +68,10 @@ If you would like to test API right away, these are the steps:
 3.  Create a superuser for accessing the Django admin panel and API:
     
     `docker exec -it <container_id here> python manage.py createsuperuser`
-4.  Start the Docker containers:
+4.  Start the Docker container:
 
-    `docker-compose up -d` 
-5.  To stop and remove the containers, use:
+    `docker-compose up` 
+5.  To stop the containers, use:
 
     `docker-compose down` 
 
